@@ -2,9 +2,12 @@ import os
 import numpy as np
 
 numGiocatori = 100
-numTentativi = 1000
+numTentativi = 10000
 
 numwin=0
+numwinprimogiocatore=0
+numlossprimogiocatore=0
+
 numloss=0
 for j in range(numTentativi):
     numeridentroscatole = []
@@ -27,6 +30,11 @@ for j in range(numTentativi):
             maxAttempts = attempts
 
 #    print("   ---> MAX attempts", maxAttempts)
+        if i ==0:
+            if maxAttempts>=numGiocatori/2:
+                numlossprimogiocatore = numlossprimogiocatore+1
+            else:
+                numwinprimogiocatore = numwinprimogiocatore+1
     if maxAttempts>=numGiocatori/2:
         numloss = numloss+1
     else:
@@ -34,6 +42,7 @@ for j in range(numTentativi):
 
 print ("FINAL STATS")
 print ("FracWin: ", numwin/numTentativi)
+print ("FracWinPrimoGiocatore: ", numwinprimogiocatore/numTentativi)    
 
 
     
