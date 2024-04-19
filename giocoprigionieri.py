@@ -2,7 +2,7 @@ import os
 import numpy as np
 
 numGiocatori = 100
-numTentativi = 10000
+numTentativi = 100000
 
 numwin=0
 numwinprimogiocatore=0
@@ -40,9 +40,9 @@ for j in range(numTentativi):
     else:
         numwin = numwin+1
 
-print ("FINAL STATS")
-print ("FracWin: ", numwin/numTentativi)
-print ("FracWinPrimoGiocatore: ", numwinprimogiocatore/numTentativi)    
+print ("FINAL STATS Tentativi: ", numTentativi, " Giocatori: ", numGiocatori)
+print ("FracWin: ", numwin/numTentativi, "±", np.sqrt(numwin)/numTentativi)
+print ("FracWinPrimoGiocatore: ", numwinprimogiocatore/numTentativi, "±", np.sqrt(numwinprimogiocatore)/numTentativi)    
 
 
     
